@@ -1,4 +1,4 @@
-package com.ghogus.source;
+package main.resources;
 
 import javax.swing.JLabel;
 

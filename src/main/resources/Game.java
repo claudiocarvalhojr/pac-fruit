@@ -1,4 +1,4 @@
-package com.ghogus.source;
+package main.resources;
 
 import java.util.List;
 
