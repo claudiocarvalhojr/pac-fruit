@@ -244,7 +244,7 @@ public class Main
 			game.getPlayer().setLifes(5);
 			game.getPlayer().setWidth(12);
 			game.getPlayer().setHeight(15);
-			game.getPlayer().setIcon(new ImageIcon(Main.class.getResource("/main/resources/img/player.gif")));
+			game.getPlayer().setIcon(new ImageIcon(Main.class.getResource("/main/img/player.gif")));
 			game.getPlayer().setVisible(true);
 		}
 		game.getPlayer().setBounds(1, 256, game.getPlayer().getWidth(), game.getPlayer().getHeight());
@@ -262,7 +262,7 @@ public class Main
 			final Fruit fruit = new Fruit();
 			fruit.setWidth(12);
 			fruit.setHeight(15);
-			fruit.setIcon(new ImageIcon(Main.class.getResource("/main/resources/img/fruit.png")));
+			fruit.setIcon(new ImageIcon(Main.class.getResource("/main/img/fruit.png")));
 			do
 			{
 				column = random.nextInt(385) + 1;
@@ -318,7 +318,7 @@ public class Main
 							{
 								if (game.isActive())
 								{
-									rain.setIcon(new ImageIcon(getClass().getResource("/main/resources/img/rain.png")));
+									rain.setIcon(new ImageIcon(getClass().getResource("/main/img/rain.png")));
 									rain.setBounds(column, row, rain.getWidth(), rain.getHeight());
 									rain.setVisible(true);
 									if (speed == 0)
