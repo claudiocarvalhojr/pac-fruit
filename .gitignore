@@ -1,7 +1,9 @@
-# Eclipse project files
+# Eclipse project files and folders
+
 .classpath
 .project
 .settings/
 
-# Java generated files
+# Java generated files and folders
+
 bin/
