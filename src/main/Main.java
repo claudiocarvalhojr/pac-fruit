@@ -55,6 +55,7 @@ public class Main
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		panel = new JPanel();
 		panel.setBackground(Color.BLACK);
+		panel.setSize(405, 302);
 		panel.setLayout(null);
 		panel.setVisible(true);
 		frame.getContentPane().add(panel);
@@ -188,10 +189,9 @@ public class Main
 					if (game.getCountFruit() == game.getQtyFruit())
 					{
 						stop();
-						final int input = JOptionPane.showConfirmDialog(panel,
-								"Você ganhou!\n\nColetou: " + game.getCountTotalFruit() + " frutas\nNível: " + game.getLevel()
-										+ "\n\n Jogar o próximo nível?",
-								"Pac-fruit", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+						final int input = JOptionPane.showConfirmDialog(panel, "Você ganhou!\n\nColetou: " + game.getCountTotalFruit() 
+								+ " frutas\nNível: " + game.getLevel() + "\n\n Jogar o próximo nível?", "Pac-fruit",
+								JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
 						if (input == 0)
 						{
 
