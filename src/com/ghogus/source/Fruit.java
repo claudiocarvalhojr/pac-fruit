@@ -1,4 +1,4 @@
-package game.source;
+package com.ghogus.source;
 
 import javax.swing.JLabel;
 

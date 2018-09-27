@@ -1,4 +1,4 @@
-package game.main;
+package com.ghogus.main;
 
 import java.awt.Color;
 import java.awt.event.KeyAdapter;
@@ -13,10 +13,10 @@ import javax.swing.JPanel;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
-import game.source.Fruit;
-import game.source.Game;
-import game.source.Player;
-import game.source.Rain;
+import com.ghogus.source.Fruit;
+import com.ghogus.source.Game;
+import com.ghogus.source.Player;
+import com.ghogus.source.Rain;
 
 
 /**
