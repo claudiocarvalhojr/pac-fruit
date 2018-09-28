@@ -108,7 +108,6 @@ public class Main
 
 	private static void stop()
 	{
-		//		game.getListFruits().clear();
 		game.setListFruits(null);
 		game.setActive(false);
 		refreshPanel();
