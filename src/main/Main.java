@@ -51,15 +51,22 @@ public class Main
 		frame.setSize(405, 302);
 		frame.setResizable(false);
 		frame.setLocationRelativeTo(null);
-		frame.setVisible(true);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		panel = new JPanel();
-		panel.setBackground(Color.BLACK);
-		panel.setLayout(null);
-		panel.setVisible(true);
-		frame.getContentPane().add(panel);
+		frame.getContentPane().add(getJPanel());
+		frame.setVisible(true);
 		start();
 		motion(game.getPlayer().getWidth(), game.getPlayer().getHeight());
+	}
+	
+	private static JPanel getJPanel() {
+		if (panel == null) {
+			panel = new JPanel();
+			panel = new JPanel();
+			panel.setBackground(Color.BLACK);
+			panel.setLayout(null);
+			panel.setVisible(true);
+		}
+		return panel;
 	}
 
 	private static void start()
@@ -78,7 +85,7 @@ public class Main
 		game.setCountFruit(0);
 		game.setListFruits(new ArrayList<Fruit>());
 		refreshPanel();
-		panel.removeAll();
+		getJPanel().removeAll();
 		makeFruit(game.getQtyFruit());
 		makePlayer();
 		makeRain(game.getQtyRain());
@@ -111,13 +118,13 @@ public class Main
 		game.setListFruits(null);
 		game.setActive(false);
 		refreshPanel();
-		panel.removeAll();
+		getJPanel().removeAll();
 	}
 
 	private static void refreshPanel()
 	{
-		panel.revalidate();
-		panel.repaint();
+		getJPanel().revalidate();
+		getJPanel().repaint();
 	}
 
 	private static void refreshInfo()
@@ -180,7 +187,7 @@ public class Main
 						&& game.getCountFruit() < 3)
 				{
 					refreshPanel();
-					panel.remove(game.getListFruits().get(count));
+					getJPanel().remove(game.getListFruits().get(count));
 					game.setCountFruit(game.getCountFruit() + 1);
 					game.setCountTotalFruit(game.getCountTotalFruit() + 1);
 					refreshInfo();
@@ -213,7 +220,7 @@ public class Main
 		{
 			game.getPlayer().setLifes(game.getPlayer().getLifes() - 1);
 			refreshPanel();
-			panel.remove(rain);
+			getJPanel().remove(rain);
 			refreshInfo();
 			if (game.getPlayer().getLifes() == 0)
 			{
@@ -243,12 +250,12 @@ public class Main
 			game.getPlayer().setLifes(5);
 			game.getPlayer().setWidth(12);
 			game.getPlayer().setHeight(15);
-			game.getPlayer().setIcon(new ImageIcon(Main.class.getResource("/main/img/player.gif")));
+			game.getPlayer().setIcon(new ImageIcon(Main.class.getResource("/main/resources/img/player.gif")));
 			game.getPlayer().setVisible(true);
 		}
 		game.getPlayer().setBounds(1, 256, game.getPlayer().getWidth(), game.getPlayer().getHeight());
 		refreshPanel();
-		panel.add(game.getPlayer());
+		getJPanel().add(game.getPlayer());
 	}
 
 	private static void makeFruit(final int qtyFruit)
@@ -261,7 +268,7 @@ public class Main
 			final Fruit fruit = new Fruit();
 			fruit.setWidth(12);
 			fruit.setHeight(15);
-			fruit.setIcon(new ImageIcon(Main.class.getResource("/main/img/fruit.png")));
+			fruit.setIcon(new ImageIcon(Main.class.getResource("/main/resources/img/fruit.png")));
 			do
 			{
 				column = random.nextInt(385) + 1;
@@ -278,7 +285,7 @@ public class Main
 			}
 			fruit.setBounds(column, row, fruit.getWidth(), fruit.getHeight());
 			fruit.setVisible(true);
-			panel.add(fruit);
+			getJPanel().add(fruit);
 			game.getListFruits().add(fruit);
 		}
 	}
@@ -306,7 +313,7 @@ public class Main
 								rain.setWidth(12);
 								rain.setHeight(15);
 							}
-							panel.add(rain);
+							getJPanel().add(rain);
 							do
 							{
 								column = random.nextInt(385) + 1;
@@ -317,7 +324,7 @@ public class Main
 							{
 								if (game.isActive())
 								{
-									rain.setIcon(new ImageIcon(getClass().getResource("/main/img/rain.png")));
+									rain.setIcon(new ImageIcon(getClass().getResource("/main/resources/img/rain.png")));
 									rain.setBounds(column, row, rain.getWidth(), rain.getHeight());
 									rain.setVisible(true);
 									if (speed == 0)
@@ -336,7 +343,7 @@ public class Main
 								}
 							}
 							refreshPanel();
-							panel.remove(rain);
+							getJPanel().remove(rain);
 							rain = null;
 						}
 						catch (final Exception e)
