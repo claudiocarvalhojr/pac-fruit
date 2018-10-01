@@ -59,7 +59,7 @@ public class Main
 
 			try
 			{
-				Instalador.initialize("main/resources/properties/config.properties");
+				Installer.initialize("main/resources/properties/config.properties");
 			}
 			catch (final IOException e)
 			{
