@@ -18,4 +18,4 @@ How to use (with installation):
 
     - installer-1.0.jar (https://github.com/claudiocarvalhojr/installer)
 
-- Run Main.java from your IDE or Generate jar executable, containing the jars files that are in the lib folder. eg: pac-fruit.jar
+- Generate jar executable, containing the jars files that are in the lib folder. eg: pac-fruit.jar
