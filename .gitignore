@@ -7,3 +7,7 @@
 # Java generated files and folders
 
 bin/
+
+# libs
+
+lib/
