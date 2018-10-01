@@ -12,7 +12,7 @@ How to use (with installation):
 
 - Add the following jar files to the lib folder and to the project build path:
 
-    - commons-io-2.4.jar https://commons.apache.org/proper/commons-io/
+    - commons-io-2.4.jar or higher https://commons.apache.org/proper/commons-io/
 
     - jshortcut-0.4-oberzalek.jar https://github.com/jimmc/jshortcut
 
