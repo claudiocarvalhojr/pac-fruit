@@ -4,7 +4,7 @@
 
 How to use (without installation):
 
-- Run from your IDE or generate executable jar. eg: pac-fruit.jar
+- Run Main.java from your IDE or generate executable jar. eg: pac-fruit.jar
 
 How to use (with installation):
 
@@ -18,4 +18,4 @@ How to use (with installation):
 
     - installer-1.0.jar (https://github.com/claudiocarvalhojr/installer)
 
-- Run from your IDE or Generate jar executable, containing the jars files that are in the lib folder. eg: pac-fruit.jar
+- Run Main.java from your IDE or Generate jar executable, containing the jars files that are in the lib folder. eg: pac-fruit.jar
