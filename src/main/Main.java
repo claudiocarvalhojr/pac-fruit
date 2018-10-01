@@ -3,8 +3,10 @@ package main;
 import java.awt.Color;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Properties;
 import java.util.Random;
 
 import javax.swing.ImageIcon;
@@ -41,46 +43,81 @@ public class Main
 		}
 		catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException e)
 		{
-			e.printStackTrace();
+			JOptionPane.showMessageDialog(null, e.getMessage());
 		}
 		initialize();
 	}
 
 	private static void initialize()
 	{
-		final String[] options =
-		{ "instalar", "jogar", "cancelar" };
-		final String question = "Você deseja " + options[0] + " ou " + options[1] + " pac-fruit?";
-		final int input = JOptionPane.showOptionDialog(null, question, "Pac-fruit", JOptionPane.DEFAULT_OPTION,
-				JOptionPane.QUESTION_MESSAGE, new ImageIcon(Main.class.getResource("/main/resources/img/pac-fruit.png")), options,
-				options[0]);
-		if (input == 0)
+
+		final String fileProperties = "main/resources/properties/config.properties";
+
+		String output = null;
+
+		final Properties props = Utils.loadProperties(fileProperties);
+		if (props != null)
+		{
+			output = props.getProperty("output");
+		}
+
+		final File init = new File(output + "\\" + "init.txt");
+		if (!init.exists())
 		{
 
-			try
+			final String[] options =
+			{ "instalar", "jogar", "cancelar" };
+			final String question = "Você deseja " + options[0] + " ou " + options[1] + " pac-fruit?";
+			final int input = JOptionPane.showOptionDialog(null, question, "Pac-fruit", JOptionPane.DEFAULT_OPTION,
+					JOptionPane.QUESTION_MESSAGE, new ImageIcon(Main.class.getResource("/main/resources/img/pac-fruit.png")), options,
+					options[0]);
+			if (input == 0)
 			{
-				Installer.initialize("main/resources/properties/config.properties");
-			}
-			catch (final IOException e)
-			{
-				e.printStackTrace();
-			}
 
+				try
+				{
+					Installer.initialize(fileProperties);
+				}
+				catch (final IOException e)
+				{
+					JOptionPane.showMessageDialog(null, e.getMessage());
+				}
+
+			}
+			else if (input == 1)
+			{
+
+				buildGame();
+
+			}
+			else if (input == 2)
+			{
+				System.exit(0);
+			}
 		}
-		else if (input == 1)
+		else
 		{
 
-			frame = new JFrame();
-			frame.setSize(405, 302);
-			frame.setResizable(false);
-			frame.setLocationRelativeTo(null);
-			frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-			frame.getContentPane().add(getJPanel());
-			frame.setVisible(true);
-			start();
-			motion(game.getPlayer().getWidth(), game.getPlayer().getHeight());
+			buildGame();
 
 		}
+
+
+	}
+
+	private static void buildGame()
+	{
+
+		frame = new JFrame();
+		frame.setSize(405, 302);
+		frame.setResizable(false);
+		frame.setLocationRelativeTo(null);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.getContentPane().add(getJPanel());
+		frame.setVisible(true);
+		start();
+		motion(game.getPlayer().getWidth(), game.getPlayer().getHeight());
+
 	}
 
 	private static JPanel getJPanel()
@@ -375,7 +412,7 @@ public class Main
 						}
 						catch (final Exception e)
 						{
-							e.printStackTrace();
+							JOptionPane.showMessageDialog(null, e.getMessage());
 						}
 					}
 				}
