@@ -11,6 +11,6 @@ How to use:
 
   - jshortcut-0.4-oberzalek.jar
 
-  - installer.jar (https://github.com/claudiocarvalhojr/instalador)
+  - installer-1.0.jar (https://github.com/claudiocarvalhojr/instalador)
 
 - Generate jar executable, containing the jars files that are in the lib folder.
