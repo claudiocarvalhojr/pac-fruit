@@ -13,4 +13,4 @@ How to use:
 
   - installer-1.0.jar (https://github.com/claudiocarvalhojr/instalador)
 
-- Generate jar executable, containing the jars files that are in the lib folder.
+- Generate jar executable, containing the jars files that are in the lib folder. eg: pac-fruit.jar
