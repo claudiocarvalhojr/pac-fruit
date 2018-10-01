@@ -56,21 +56,24 @@ public class Main
 		String output = null;
 
 		final Properties props = Utils.loadProperties(fileProperties);
+
 		if (props != null)
 		{
 			output = props.getProperty("output");
 		}
 
 		final File init = new File(output + "\\" + "init.txt");
+
 		if (!init.exists())
 		{
 
 			final String[] options =
-			{ "instalar", "jogar", "cancelar" };
+			{ "Instalar", "Jogar", "Cancelar" };
 			final String question = "Você deseja " + options[0] + " ou " + options[1] + " pac-fruit?";
 			final int input = JOptionPane.showOptionDialog(null, question, "Pac-fruit", JOptionPane.DEFAULT_OPTION,
 					JOptionPane.QUESTION_MESSAGE, new ImageIcon(Main.class.getResource("/main/resources/img/pac-fruit.png")), options,
 					options[0]);
+
 			if (input == 0)
 			{
 
